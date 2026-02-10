@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Projects</title>
+
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            background:#020c1b;
+            color:#fff;
+        }
+
+        /* ============ NAVBAR ============ */
+        header{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:20px 8%;
+            position:fixed;
+            width:100%;
+            top:0;
+            background:rgba(2,12,27,0.95);
+            z-index:1000;
+        }
+
+        .logo{
+            font-size:24px;
+            font-weight:700;
+        }
+
+        nav{
+            display:flex;
+        }
+
+        nav a{
+            color:#fff;
+            text-decoration:none;
+            margin-left:25px;
+            transition:.3s;
+        }
+
+        nav a:hover{
+            color:#00f2ff;
+        }
+
+        .menu-toggle{
+            display:none;
+            font-size:24px;
+            cursor:pointer;
+        }
+
+        /* ============ PROJECTS ============ */
+        .projects-section{
+            min-height:100vh;
+            padding:120px 8% 60px;
+        }
+
+        .projects-title{
+            text-align:center;
+            margin-bottom:50px;
+        }
+
+        .projects-title h2{
+            font-size:42px;
+            margin-bottom:10px;
+        }
+
+        .projects-title span{
+            color:#00f2ff;
+        }
+
+        .projects-container{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+            gap:30px;
+        }
+
+        .project-card{
+            position:relative;
+            border-radius:20px;
+            overflow:hidden;
+            cursor:pointer;
+        }
+
+    .project-card img{
+    width:100%;
+    height:auto; /* automatically adjust height */
+    display:block;
+    transition:.5s;
+    border-radius:20px;
+}
+
+        .project-layer{
+            position:absolute;
+            inset:0;
+            background:linear-gradient(to top,rgba(0,242,255,.9),rgba(2,12,27,.95));
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            padding:20px;
+            transform:translateY(100%);
+            transition:.5s;
+        }
+
+        .project-card:hover img{
+            transform:scale(1.1);
+        }
+
+        .project-card:hover .project-layer{
+            transform:translateY(0);
+        }
+
+        .project-layer h3{
+            font-size:22px;
+            margin-bottom:10px;
+        }
+
+        .project-layer p{
+            font-size:14px;
+            line-height:1.5;
+            margin-bottom:15px;
+        }
+
+        .project-layer a{
+            width:45px;
+            height:45px;
+            background:#fff;
+            color:#020c1b;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            border-radius:50%;
+            text-decoration:none;
+            font-size:18px;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media(max-width:768px){
+            nav{
+                position:absolute;
+                top:70px;
+                right:-100%;
+                flex-direction:column;
+                background:#020c1b;
+                width:200px;
+                transition:.3s;
+            }
+
+            nav a{
+                padding:15px;
+            }
+
+            nav.active{
+                right:20px;
+            }
+
+            .menu-toggle{
+                display:block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<header>
+    <div class="logo">Portfolio.</div>
+
+    <nav id="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="service.html">Services</a>
+        <a href="skills.html">Skills</a>
+        <a href="project.html" style="color:#00f2ff;">Project</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </div>
+</header>
+
+<!-- ============ PROJECTS SECTION ============ -->
+<section class="projects-section">
+    <div class="projects-title">
+        <h2>My <span>Projects</span></h2>
+        <p>Some of my recent works</p>
+    </div>
+
+    <div class="projects-container">
+
+        <div class="project-card">
+            <img src="images/7.png" alt="">
+            <div class="project-layer">
+                <h3>Portfolio Website</h3>
+                <p>Modern personal portfolio website using HTML, CSS & JavaScript.</p>
+                <a href="#"><i class="fas fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img src="images/3.png" alt="">
+            <div class="project-layer">
+                <h3>Job Portal</h3>
+                <p>Full-featured job portal with role-based dashboard and authentication.</p>
+                <a href="#"><i class="fas fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <img src="images/6.jpg" alt="">
+            <div class="project-layer">
+                <h3>Library System</h3>
+                <p>Book borrowing system with fine calculation and user management.</p>
+                <a href="#"><i class="fas fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+        <div class="project-card">
+            <img src="images/2.png" alt="">
+            <div class="project-layer">
+                <h3>E-commerce Website</h3>
+                <p>Product management, cart, checkout & orders.</p>
+                <a href="#"><i class="fas fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+           <div class="project-card">
+            <img src="images/5.png" alt="">
+            <div class="project-layer">
+                <h3>System</h3>
+                <p>Student, library & record management systems</p>
+                <a href="#"><i class="fas fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ============ JS ============ -->
+<script>
+    function toggleMenu(){
+        document.getElementById("nav").classList.toggle("active");
+    }
+</script>
+
+</body>
+</html>

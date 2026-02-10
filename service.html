@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Services</title>
+
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            background:#020c1b;
+            color:#fff;
+        }
+
+        /* ============ NAVBAR ============ */
+        header{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:20px 8%;
+            position:fixed;
+            width:100%;
+            top:0;
+            background:rgba(2,12,27,0.95);
+            z-index:1000;
+        }
+
+        .logo{
+            font-size:24px;
+            font-weight:700;
+        }
+
+        nav{
+            display:flex;
+        }
+
+        nav a{
+            color:#fff;
+            text-decoration:none;
+            margin-left:25px;
+            transition:.3s;
+        }
+
+        nav a:hover{
+            color:#00f2ff;
+        }
+
+        .menu-toggle{
+            display:none;
+            font-size:24px;
+            cursor:pointer;
+        }
+
+        /* ============ SERVICES ============ */
+        .services-section{
+            min-height:100vh;
+            padding:120px 8% 60px;
+            text-align:center;
+        }
+
+        .services-section h2{
+            font-size:42px;
+            margin-bottom:10px;
+        }
+
+        .services-section h2 span{
+            color:#00f2ff;
+        }
+
+        .services-section p{
+            color:#cbd5e1;
+            margin-bottom:50px;
+        }
+
+        .services-container{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:30px;
+        }
+
+        .service-box{
+            background:#081b29;
+            padding:40px 25px;
+            border-radius:20px;
+            transition:.3s;
+            border:1px solid transparent;
+        }
+
+        .service-box:hover{
+            transform:translateY(-10px);
+            border-color:#00f2ff;
+            box-shadow:0 0 20px rgba(0,242,255,0.3);
+        }
+
+        .service-box i{
+            font-size:45px;
+            color:#00f2ff;
+            margin-bottom:20px;
+        }
+
+        .service-box h3{
+            font-size:22px;
+            margin-bottom:15px;
+        }
+
+        .service-box p{
+            font-size:15px;
+            line-height:1.6;
+            color:#cbd5e1;
+        }
+
+        .btn{
+            display:inline-block;
+            margin-top:20px;
+            padding:10px 25px;
+            background:#00f2ff;
+            color:#020c1b;
+            border-radius:30px;
+            text-decoration:none;
+            font-weight:600;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media(max-width:768px){
+            nav{
+                position:absolute;
+                top:70px;
+                right:-100%;
+                flex-direction:column;
+                background:#020c1b;
+                width:200px;
+                transition:.3s;
+            }
+
+            nav a{
+                padding:15px;
+            }
+
+            nav.active{
+                right:20px;
+            }
+
+            .menu-toggle{
+                display:block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<header>
+    <div class="logo">Portfolio.</div>
+
+    <nav id="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="service.html" style="color:#00f2ff;">Services</a>
+        <a href="skills.html">Skills</a>
+        <a href="project.html">Project</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </div>
+</header>
+
+<!-- ============ SERVICES SECTION ============ -->
+<section class="services-section">
+    <h2>My <span>Services</span></h2>
+    <p>What I can do for you</p>
+
+    <div class="services-container">
+
+        <div class="service-box">
+            <i class="fas fa-code"></i>
+            <h3>Web Development</h3>
+            <p>
+                Building modern, responsive, and high-performance websites using
+                clean code and latest technologies.
+            </p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+
+        <div class="service-box">
+            <i class="fas fa-paint-brush"></i>
+            <h3>UI / UX Design</h3>
+            <p>
+                Designing user-friendly and visually appealing interfaces that
+                enhance user experience and engagement.
+            </p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+
+        <div class="service-box">
+            <i class="fas fa-mobile-alt"></i>
+            <h3>Responsive Design</h3>
+            <p>
+                Creating mobile-first designs that look perfect on all screen sizes
+                and devices.
+            </p>
+            <a href="#" class="btn">Read More</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- ============ JS ============ -->
+<script>
+    function toggleMenu(){
+        document.getElementById("nav").classList.toggle("active");
+    }
+</script>
+
+</body>
+</html>

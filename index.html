@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Basic styling for demo */
+        body{
+            background:#020c1b;
+            color:#fff;
+            font-family:'Poppins', sans-serif;
+            margin:0;
+            padding:0;
+        }
+
+        header{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:20px 8%;
+            position:fixed;
+            width:100%;
+            top:0;
+            background:rgba(2,12,27,0.95);
+            z-index:1000;
+        }
+
+        nav a{
+            color:#fff;
+            text-decoration:none;
+            margin-left:25px;
+            transition:.3s;
+        }
+
+        nav a:hover{
+            color:#00f2ff;
+        }
+
+        .menu-toggle{
+            display:none;
+            font-size:24px;
+            cursor:pointer;
+        }
+
+        .hero{
+            min-height:100vh;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            padding:120px 8%;
+        }
+
+        .hero-text{
+            max-width:600px;
+        }
+
+        .hero-text h1{
+            font-size:48px;
+            margin-bottom:10px;
+        }
+
+        .hero-text h3{
+            font-size:28px;
+            color:#00f2ff;
+            margin-bottom:20px;
+            min-height:40px;
+        }
+
+        .hero-text p{
+            font-size:16px;
+            color:#cbd5e1;
+            margin-bottom:20px;
+        }
+
+        .btn{
+            display:inline-block;
+            padding:10px 25px;
+            background:#00f2ff;
+            color:#020c1b;
+            border-radius:30px;
+            text-decoration:none;
+            font-weight:600;
+            transition:.3s;
+        }
+
+        .btn:hover{
+            box-shadow:0 0 15px #00f2ff;
+        }
+
+        .hero-image .glow-circle{
+            width:300px;
+            height:300px;
+            border-radius:50%;
+            padding:8px;
+            background:linear-gradient(45deg,#00f2ff,#9b5cff);
+        }
+
+        .hero-image img{
+            width:100%;
+            height:100%;
+            border-radius:50%;
+            object-fit:cover;
+        }
+
+        @media(max-width:768px){
+            .hero{
+                flex-direction:column;
+                text-align:center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">Portfolio.</div>
+
+    <nav id="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="service.html">Services</a>
+        <a href="skills.html">Skills</a>
+        <a href="project.html">Project</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="hero-text">
+        <p class="hello">Hello, It's Me</p>
+        <h1>Shanti Pun</h1>
+        <!-- Animated h3 -->
+        <h3 id="animated-h3"></h3>
+        <!-- Animated description -->
+        <p class="desc" id="animated-desc"></p>
+
+        <div class="social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+
+        <a href="about.html" class="btn">More About Me</a>
+    </div>
+
+    <div class="hero-image">
+        <div class="glow-circle">
+            <img src="images/1.jpg" alt="profile">
+        </div>
+    </div>
+</section>
+
+<script>
+function toggleMenu(){
+    document.getElementById("nav").classList.toggle("active");
+}
+
+// Full sentence for h3
+const h3Text = "And I'm a Web Developer";
+const pText = "I’m a passionate web designer with over 1 years of hands-on experience crafting clean, modern, and user-friendly websites. I specialize in creative UI design, responsive frontend development, and turning ideas into engaging digital experiences.";
+
+const h3Container = document.getElementById("animated-h3");
+const pContainer = document.getElementById("animated-desc");
+
+let h3Index = 0;
+let pIndex = 0;
+
+function typeBoth() {
+    // Type h3
+    if(h3Index < h3Text.length){
+        h3Container.textContent += h3Text[h3Index];
+        h3Index++;
+    }
+
+    // Type p in parallel
+    if(pIndex < pText.length){
+        pContainer.textContent += pText[pIndex];
+        pIndex++;
+    }
+
+    // Continue animation while either text has characters
+    if(h3Index < h3Text.length || pIndex < pText.length){
+        setTimeout(typeBoth, 50); // adjust typing speed
+    }
+}
+
+// Start typing animation when page loads
+window.onload = typeBoth;
+</script>
+
+</body>
+</html>
